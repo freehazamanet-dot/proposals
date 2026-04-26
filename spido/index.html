@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPIDO サイトマップ・トーン提案 | 大阪梅田ペリオインプラントクリニック</title>
+<style>
+  :root {
+    --c-bg: #f7f5f1;
+    --c-paper: #ffffff;
+    --c-ink: #1a1a1a;
+    --c-sub: #555;
+    --c-line: #d8d4cb;
+    --c-accent: #1f3a5f;
+    --c-accent-soft: #e8eef5;
+    --c-tag: #6b4f2a;
+    --c-tag-bg: #f1e9d9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+    background: var(--c-bg);
+    color: var(--c-ink);
+    line-height: 1.85;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+  }
+  header.doc-head {
+    border-bottom: 1px solid var(--c-line);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+  .eyebrow {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--c-accent);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 32px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .lead {
+    color: var(--c-sub);
+    font-size: 15px;
+  }
+  .meta {
+    margin-top: 24px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: var(--c-sub);
+  }
+  .meta span { margin-right: 24px; }
+
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 22px;
+    border-left: 4px solid var(--c-accent);
+    padding-left: 14px;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+  h3 {
+    font-size: 17px;
+    margin: 28px 0 12px;
+    color: var(--c-accent);
+  }
+  p { margin-bottom: 14px; }
+  .panel {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    padding: 28px 32px;
+    border-radius: 6px;
+  }
+  .panel + .panel { margin-top: 16px; }
+  .panel-soft {
+    background: var(--c-accent-soft);
+    border: none;
+  }
+
+  .tone-tag {
+    display: inline-block;
+    background: var(--c-tag-bg);
+    color: var(--c-tag);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .tone-tag.bad {
+    background: #f4e3e3;
+    color: #8a3a3a;
+  }
+
+  .catch {
+    background: var(--c-paper);
+    border-left: 4px solid var(--c-accent);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+  .catch-label {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    color: var(--c-accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+  .catch-main {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .catch-sub {
+    color: var(--c-sub);
+    font-size: 14px;
+  }
+  .catch.recommend {
+    background: var(--c-accent-soft);
+    border-left-color: var(--c-accent);
+    position: relative;
+  }
+  .catch.recommend::after {
+    content: "推奨";
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--c-accent);
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  /* サイトマップツリー */
+  .sitemap-tree {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 6px;
+    padding: 32px;
+  }
+  .group {
+    margin-bottom: 28px;
+  }
+  .group:last-child { margin-bottom: 0; }
+  .group-label {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--c-accent);
+    border-bottom: 1px solid var(--c-line);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .page {
+    background: var(--c-bg);
+    border: 1px solid var(--c-line);
+    padding: 12px 14px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+  }
+  .page-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .page-slug {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--c-sub);
+  }
+  .page-children {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--c-line);
+    font-size: 12px;
+    color: var(--c-sub);
+    line-height: 1.7;
+  }
+  .page-children li {
+    list-style: none;
+    padding-left: 12px;
+    position: relative;
+  }
+  .page-children li::before {
+    content: "└";
+    position: absolute;
+    left: 0;
+    color: var(--c-line);
+  }
+
+  table.summary {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  table.summary th, table.summary td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--c-line);
+    font-size: 14px;
+  }
+  table.summary th {
+    background: var(--c-accent-soft);
+    color: var(--c-accent);
+    font-weight: 600;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  table.summary tr:last-child td { border-bottom: none; }
+  table.summary td.num {
+    text-align: right;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+  }
+  table.summary tr.total td {
+    background: var(--c-bg);
+    font-weight: 700;
+  }
+
+  .nav-mock {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 6px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    background: var(--c-accent);
+    color: #fff;
+    padding: 14px 22px;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+  .nav-bar .logo {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-right: 12px;
+  }
+  .nav-bar .item { opacity: 0.9; }
+  .nav-bar .item.dropdown::after {
+    content: " ▼";
+    font-size: 10px;
+    opacity: 0.7;
+  }
+  .nav-bar .cta {
+    margin-left: auto;
+    background: #fff;
+    color: var(--c-accent);
+    padding: 6px 14px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+  .nav-sub {
+    background: #fafaf7;
+    padding: 12px 22px;
+    font-size: 12px;
+    color: var(--c-sub);
+    border-top: 1px solid var(--c-line);
+  }
+  .nav-sub strong { color: var(--c-accent); margin-right: 8px; }
+
+  ul.checklist {
+    list-style: none;
+    padding: 0;
+  }
+  ul.checklist li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    border-bottom: 1px dashed var(--c-line);
+    font-size: 14px;
+  }
+  ul.checklist li:last-child { border-bottom: none; }
+  ul.checklist li::before {
+    content: "□";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: var(--c-accent);
+    font-size: 18px;
+  }
+
+  .arrow {
+    text-align: center;
+    color: var(--c-line);
+    margin: 8px 0;
+    font-size: 18px;
+  }
+
+  footer.doc-foot {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--c-line);
+    color: var(--c-sub);
+    font-size: 12px;
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 40px 20px 60px; }
+    h1 { font-size: 24px; }
+    .pages { grid-template-columns: 1fr; }
+    .nav-bar { font-size: 12px; gap: 14px; padding: 12px 16px; }
+    .nav-bar .cta { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="doc-head">
+  <div class="eyebrow">PROPOSAL — SITEMAP & TONE</div>
+  <h1>SPIDO ホームページ サイトマップ・トーン提案書</h1>
+  <p class="lead">大阪梅田ペリオインプラントクリニック ／ 院長 辻 翔太 先生</p>
+  <div class="meta">
+    <span>作成日: 2026年4月18日</span>
+    <span>制作: 株式会社ファンクション・ティ</span>
+  </div>
+</header>
+
+<section>
+  <h2>1. トーン提案</h2>
+  <div class="panel">
+    <h3>採用トーン: 権威信頼型 × 教育者ブランディング</h3>
+    <p>
+      <strong>米国で学ばれた臨床と科学的根拠を、静かな説得力で伝える</strong>方向性です。
+    </p>
+
+    <h3>言葉選びの方針</h3>
+    <p style="margin-bottom: 8px;"><strong>使う語彙</strong></p>
+    <div>
+      <span class="tone-tag">エビデンス</span>
+      <span class="tone-tag">文献</span>
+      <span class="tone-tag">米国歯周病学会</span>
+      <span class="tone-tag">コロンビア大学</span>
+      <span class="tone-tag">原因</span>
+      <span class="tone-tag">科学的</span>
+      <span class="tone-tag">臨床トレーニング</span>
+      <span class="tone-tag">記録</span>
+      <span class="tone-tag">根拠</span>
+    </div>
+
+    <p style="margin-top: 20px; margin-bottom: 8px;"><strong>避ける語彙</strong></p>
+    <div>
+      <span class="tone-tag bad">やさしい</span>
+      <span class="tone-tag bad">家族みんな</span>
+      <span class="tone-tag bad">地域の皆さま</span>
+      <span class="tone-tag bad">アットホーム</span>
+      <span class="tone-tag bad">気軽</span>
+      <span class="tone-tag bad">格安</span>
+      <span class="tone-tag bad">最先端（単独）</span>
+      <span class="tone-tag bad">最高 / 日本一</span>
+    </div>
+
+    <ul style="margin-top: 20px; padding-left: 22px; color: var(--c-sub); font-size: 14px;">
+      <li>文末は「です・ます」基調＋体言止めで静かな説得力</li>
+      <li>圧の強い売り込みトーン（「〜しませんか！」「ぜひ！」）は使わない</li>
+    </ul>
+  </div>
+
+  <div class="panel panel-soft" style="margin-top: 20px;">
+    <h3 style="margin-top: 0;">既存サイトからの進化ポイント</h3>
+    <p style="font-size: 14px; color: var(--c-sub);">
+      既存「確かな技術で、その笑顔の輝きを、もっと」「THE FUTURE IS HAPPENING HERE」<br>
+      → 抽象度が高く差別化が伝わっていない
+    </p>
+    <div class="arrow">↓</div>
+    <p style="font-size: 14px;">
+      新HPでは <strong>「米国で学んだ臨床を、日本で。」</strong> のように、<br>
+      <strong>具体的な差別化を前面に出す</strong>方針へ。
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>2. キャッチコピー 3案</h2>
+
+  <div class="catch recommend">
+    <div class="catch-label">A 案 — 経歴ストーリー型</div>
+    <div class="catch-main">米国で学んだ臨床を、大阪梅田で。</div>
+    <div class="catch-sub">
+      日米の歯科医師免許と米国歯周病学会専門医による、<br>
+      歯周病とインプラントの統合治療。
+    </div>
+  </div>
+
+  <div class="catch">
+    <div class="catch-label">B 案 — 哲学提示型</div>
+    <div class="catch-main">原因を、見極める。歯を、残す。</div>
+    <div class="catch-sub">
+      コロンビア大学で3年間の専門トレーニングを重ねた<br>
+      ペリオドンティストが、根拠に基づく治療を。
+    </div>
+  </div>
+
+  <div class="catch">
+    <div class="catch-label">C 案 — 差別化提示型</div>
+    <div class="catch-main">歯周病専門医が、インプラントも手がける理由。</div>
+    <div class="catch-sub">
+      米国式のペリオドンティストは、歯の周り全てを診る。<br>
+      ——だから、一本の歯を最後まで守れる。
+    </div>
+  </div>
+
+  <p style="margin-top: 20px; padding: 16px 20px; background: var(--c-paper); border-left: 3px solid var(--c-accent); font-size: 14px;">
+    <strong>A案を推奨</strong>。経歴＝差別化の核が3秒で伝わり、SEO的にも地名＋「米国」「専門医」が効きます。
+  </p>
+</section>
+
+<section>
+  <h2>3. サイトマップ（全16ページ構成）</h2>
+
+  <div class="panel panel-soft" style="margin-bottom: 24px;">
+    <p style="font-size: 14px;">
+      <strong>設計方針</strong>：既存サイトは16ページで細分化しすぎ → <strong>統合と独立化</strong>を行いました。
+    </p>
+    <ul style="margin-top: 12px; padding-left: 22px; font-size: 14px; color: var(--c-sub);">
+      <li>歯周病系の5ページ → <strong>「歯周病治療」1ページ＋章立て</strong>に集約</li>
+      <li>インプラント系の3ページ → <strong>「インプラント治療」1ページ＋章立て</strong>に集約</li>
+      <li>院長の経歴・哲学を<strong>最強コンテンツ</strong>として独立ページ化</li>
+      <li>医療関係者向け「The Standard」「The Articles」を独立ページ化（歯科医師の権威性訴求）</li>
+    </ul>
+  </div>
+
+  <div class="sitemap-tree">
+
+    <div class="group">
+      <div class="group-label">CORE — 共通ページ</div>
+      <div class="pages">
+        <div class="page"><div class="page-name">TOP</div><div class="page-slug">/</div></div>
+        <div class="page"><div class="page-name">コンセプト</div><div class="page-slug">/concept/</div></div>
+        <div class="page"><div class="page-name">院長紹介</div><div class="page-slug">/doctor/</div></div>
+        <div class="page"><div class="page-name">副院長・スタッフ</div><div class="page-slug">/staff/</div></div>
+        <div class="page"><div class="page-name">初めての方へ</div><div class="page-slug">/first/</div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">TREATMENT — 診療メニュー（統合ページ）</div>
+      <div class="pages">
+        <div class="page">
+          <div class="page-name">歯周病治療</div>
+          <div class="page-slug">/periodontal/</div>
+          <ul class="page-children">
+            <li>歯周病とは</li>
+            <li>15項目の精密検査（PRA）</li>
+            <li>非外科治療（SRP等）</li>
+            <li>歯周組織再生治療</li>
+            <li>根面被覆治療</li>
+            <li>歯周メンテナンス</li>
+          </ul>
+        </div>
+        <div class="page">
+          <div class="page-name">インプラント治療</div>
+          <div class="page-slug">/implant/</div>
+          <ul class="page-children">
+            <li>SPIDOのインプラント治療</li>
+            <li>8種類のメーカーと使い分け</li>
+            <li>骨造成（GBR/サイナスリフト）</li>
+            <li>インプラント周囲炎対応</li>
+            <li>10年保証・メンテナンス</li>
+          </ul>
+        </div>
+        <div class="page">
+          <div class="page-name">矯正治療</div>
+          <div class="page-slug">/orthodontics/</div>
+          <ul class="page-children">
+            <li>副院長が担当</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">DIFFERENTIATION — 選ばれる理由・情報</div>
+      <div class="pages">
+        <div class="page"><div class="page-name">当院の特徴</div><div class="page-slug">/features/</div></div>
+        <div class="page"><div class="page-name">症例紹介</div><div class="page-slug">/cases/</div></div>
+        <div class="page"><div class="page-name">教育活動</div><div class="page-slug">/education/</div></div>
+        <div class="page"><div class="page-name">料金表</div><div class="page-slug">/price/</div></div>
+        <div class="page"><div class="page-name">よくあるご質問</div><div class="page-slug">/faq/</div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">CLINIC INFO — 医院情報</div>
+      <div class="pages">
+        <div class="page"><div class="page-name">アクセス・診療時間</div><div class="page-slug">/access/</div></div>
+        <div class="page"><div class="page-name">お問い合わせ・予約</div><div class="page-slug">/contact/</div></div>
+        <div class="page"><div class="page-name">求人情報</div><div class="page-slug">/recruit/</div></div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">CONTENT — コンテンツ</div>
+      <div class="pages">
+        <div class="page"><div class="page-name">デンタルコラム</div><div class="page-slug">/column/</div>
+          <ul class="page-children"><li>WordPress内蔵ブログ（週2本目標）</li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <table class="summary">
+    <thead>
+      <tr><th>区分</th><th>内訳</th><th class="num">ページ数</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>共通</td><td>TOP / コンセプト / 院長 / スタッフ / 初めての方 / アクセス / 問い合わせ</td><td class="num">7</td></tr>
+      <tr><td>診療メニュー（統合後）</td><td>歯周病治療 / インプラント治療 / 矯正治療</td><td class="num">3</td></tr>
+      <tr><td>差別化訴求</td><td>特徴 / 症例 / 教育活動</td><td class="num">3</td></tr>
+      <tr><td>医院情報</td><td>料金 / FAQ / 求人</td><td class="num">3</td></tr>
+      <tr class="total"><td colspan="2">合計</td><td class="num">16</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>4. フッター構成</h2>
+  <div class="panel">
+    <ul style="padding-left: 22px; font-size: 14px; line-height: 2;">
+      <li><strong>診療メニュー</strong>: 歯周病治療 / インプラント治療 / 矯正治療</li>
+      <li><strong>クリニック情報</strong>: コンセプト / 院長 / アクセス / 料金</li>
+      <li><strong>その他</strong>: 初めての方 / FAQ / 求人 / コラム / プライバシーポリシー</li>
+      <li><strong>SNS</strong>: Instagram</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="doc-foot">
+  SPIDO HP制作プロジェクト ／ 株式会社ファンクション・ティ
+</footer>
+
+</div>
+</body>
+</html>
